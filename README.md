@@ -1,72 +1,65 @@
-# VibeCR Monitor — Landing Page
+# LitPulse — Vibe Coding & Research Monitor
 
-This directory contains the **static marketing/documentation page** for the VibeCR project.
-It is a standalone HTML/CSS/JS site designed to be served directly (e.g., GitHub Pages) — no build step, no framework, no backend calls.
+Static landing page for the [vibeCR](https://github.com/Mr-Tieguigui/vibeCR) project.  
+Hosted on GitHub Pages. Zero build step, zero dependencies beyond Google Fonts.
 
-## What it covers
-
-- **Hero** — VibeCR Monitor wordmark, pitch, static stats strip
-- **Quickstart** — 3 terminal-style CLI cards showing setup/run workflow
-- **Templates** — Downloadable `project_template.yaml` and CSV formats
-- **Demo Marquee** — Auto-scrolling horizontal ticker of generic project examples
-- **Literature Workflow** — Undermind vs Zotero comparison panels
-- **Coding / Research Stack** — Curated examples of tools, IDEs, and prompt patterns
-- **FAQ** — Essential questions and answers
-
-## File structure
+## Structure
 
 ```
 page_site/
-  index.html              <- Entry point (all sections)
-  .nojekyll               <- Disables Jekyll on GitHub Pages
-  assets/
-    styles.css            <- Design tokens (dark theme), layout, marquee animations
-    app.js                <- Marquee population, scroll reveal, FAQ toggle, nav state
-    icon.svg              <- VibeCR custom logo SVG
-  templates/
-    project_template.yaml <- Downloadable YAML
-    undermind_template.csv<- Downloadable CSV
-    zotero_template.csv   <- Downloadable CSV
-  README.md               <- This file
+├── index.html              # Entry point
+├── assets/
+│   ├── styles.css          # Design system (dark academic + tech theme)
+│   ├── app.js              # Interactivity (ticker, nav, FAQ, scroll reveal)
+│   └── icon.svg            # Custom logo icon
+├── templates/
+│   ├── project_template.yaml
+│   ├── undermind_template.csv
+│   └── zotero_template.csv
+└── README.md
 ```
 
-## How to edit
+## Sections
 
-### Logo & Brand Name
-Edit `index.html` (Hero section) and `assets/icon.svg`.
-The wordmark is built with HTML/CSS (`.nav-wordmark`, `.hero-title`).
+| # | Section | Description |
+|---|---------|-------------|
+| 01 | Quickstart | CLI-style terminal cards with install/run/workflow |
+| 02 | Templates | Downloadable YAML + CSV templates |
+| 03 | Demo Projects | 60-entry infinite ticker with search & domain filter |
+| 04 | Literature Workflow | Dual-source ingestion (Undermind + Zotero) |
+| 05 | Coding Stack | Recommended tools for Vibe Coding |
+| 06 | Research Stack | Recommended tools for Vibe Research |
+| 07 | FAQ | Expandable Q&A |
 
-### Demo Marquee Entries
-Edit `assets/app.js` → `demoProjects` array.
-```javascript
-const demoProjects = [
-  { name: "Agent Eval Benchmark", papers: 42, steps: 18 },
-  // ... add or modify generic projects
-];
-```
+## Demo Ticker
 
-### Stack Links & Prompts
-Edit `index.html` → `#coding-stack` and `#research-stack` sections. Links are hardcoded HTML `<a>` tags inside `.stack-list`. Prompts are text inside `.prompt-box`.
+- **60 synthetic projects** across 16 research domains
+- Seamless infinite horizontal scroll (CSS animation)
+- Real-time search by title/summary (debounced)
+- Domain tag dropdown filter
+- Reset button to clear filters
+- Pauses on hover
+- Respects `prefers-reduced-motion` (disables animation, enables manual scroll)
+- No private data — all entries are generic/synthetic
 
-### Templates
-Edit the actual files in `page_site/templates/`. The "Download" buttons in `index.html` link directly to these relative paths.
+## Editing
 
-## Handoff interfaces
+### Change the product name
+Search-replace `LitPulse` in `index.html`, `styles.css` comment header, `app.js` comment header, and this README.
 
-| Component | Location | Details |
-|-----------|----------|---------|
-| Demo Marquee Data | `assets/app.js` | Array of objects injected into the infinite CSS scroll track |
-| Template Downloads | `templates/` | Physical files referenced via relative `<a href>` |
-| FAQ Content | `index.html` | Hardcoded inside `.faq-item` blocks |
-| Design System | `assets/styles.css` | `:root` vars define colors, type scale, spacing, shadows |
-| Animations | `assets/styles.css` | Keyframes for blobs and marquee (respects prefers-reduced-motion) |
+### Add/remove demo projects
+Edit the `DEMO_DATA` array in `assets/app.js`. Each entry needs: `title`, `domain`, `summary`, `papers`, `steps`, `artifacts`, `updated`.
 
-## Acceptance checklist status
+### Modify design tokens
+All CSS variables are in `:root` at the top of `assets/styles.css`.
 
-- [x] No console errors
-- [x] All anchors work (`#quickstart`, `#templates`, etc.)
-- [x] Download buttons download files correctly
-- [x] Marquee scrolls smoothly and loops infinitely
-- [x] Sections are visually separated (gradients/borders/chips)
-- [x] GitHub link points to correct repo
-- [x] Mobile layout collapses nav to hamburger menu
+## Deployment
+
+This is a static site — just serve `page_site/` as the root. For GitHub Pages:
+1. Go to repo Settings → Pages
+2. Set source to the branch containing `page_site/`
+3. Set folder to `/page_site`
+
+## License
+
+CC BY-SA 4.0
