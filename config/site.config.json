@@ -1,0 +1,100 @@
+{
+  "productName": "LabPilot",
+  "subtitle": "Literature-to-Execution Workspace",
+  "tagline": "From papers to artifacts — one disciplined workflow.",
+  "description": "Manage your entire research portfolio from a single dashboard. Import literature from Undermind or Zotero, track Vibe Coding & Vibe Research execution steps, generate daily and weekly reports — all with local web AI assistance, no API keys required.",
+  "githubUrl": "https://github.com/Mr-Tieguigui/vibeCR",
+  "stats": {
+    "projects": 24,
+    "papers": 1847,
+    "steps": 312,
+    "reports": 96
+  },
+  "quickstart": [
+    {
+      "num": 1,
+      "title": "Export from Undermind → Import",
+      "whatYouDo": [
+        "Run a search on app.undermind.ai for your research topic",
+        "Download the results CSV from the Undermind dashboard"
+      ],
+      "whatYouGet": [
+        "Papers with relevance scores, topic match, and abstracts",
+        "Auto-indexed and tagged in your project's literature tab"
+      ],
+      "code": "# Undermind CSV columns (auto-detected)\nTitle, Authors, Year, Venue, Citations,\nRelevance Summary, Topic Match Score,\nAbstract, URL"
+    },
+    {
+      "num": 2,
+      "title": "Export from Zotero → Import",
+      "whatYouDo": [
+        "Select papers in your Zotero library and export as CSV",
+        "Upload the CSV file to your project's literature importer"
+      ],
+      "whatYouGet": [
+        "Papers with metadata, abstracts, DOIs, and notes",
+        "Deduplication against existing papers in the project"
+      ],
+      "code": "# Zotero CSV columns (auto-detected)\nKey, Item Type, Title, Author,\nAbstract Note, Publication Year,\nDOI, Url, Date Added"
+    },
+    {
+      "num": 3,
+      "title": "Vibe Research Loop",
+      "whatYouDo": [
+        "Tag papers → write notes → build project outline",
+        "Use any browser-based AI (Gemini, ChatGPT) to refine"
+      ],
+      "whatYouGet": [
+        "Structured overview with 12 section types (definition, pipeline, risks…)",
+        "Milestone timeline and deliverables checklist"
+      ],
+      "code": "# Vibe Research cycle\ntag papers → annotate → outline\n→ structured overview → milestones\n→ weekly report"
+    },
+    {
+      "num": 4,
+      "title": "Vibe Coding Loop",
+      "whatYouDo": [
+        "Plan tasks → implement → track artifacts",
+        "Cycle step statuses: todo → doing → done → blocked"
+      ],
+      "whatYouGet": [
+        "Execution steps with progress bars and blocker alerts",
+        "Daily reports with activity logs and artifact registry"
+      ],
+      "code": "# Vibe Coding cycle\nplan → implement → test → artifact\n→ execution steps → daily report\n→ kanban board"
+    }
+  ],
+  "features": {
+    "literature": [
+      { "icon": "📚", "title": "Undermind + Zotero Import", "desc": "CSV import with auto-format detection. Relevance scores, abstracts, DOIs parsed automatically." },
+      { "icon": "🏷️", "title": "Tag & Annotate Papers", "desc": "Multi-tag papers, write per-paper notes, pin important references. Search across all projects." },
+      { "icon": "📊", "title": "Citation Tracking", "desc": "Track citation counts, publication venues, and year distributions across your literature corpus." },
+      { "icon": "🔗", "title": "Cross-Project Literature", "desc": "Global literature index spans all projects. Papers linked to multiple projects with shared tags." }
+    ],
+    "execution": [
+      { "icon": "⚡", "title": "Dual VC/VR Progress", "desc": "Separate Vibe Coding and Vibe Research checklists with independent progress tracking." },
+      { "icon": "🔄", "title": "Status Cycling", "desc": "Click to cycle: todo → doing → done → blocked. Inline editing for all step fields." },
+      { "icon": "🎯", "title": "Milestone Timeline", "desc": "Milestones with deadlines, acceptance criteria, and status badges. Kanban board for task flow." },
+      { "icon": "📦", "title": "Artifact Registry", "desc": "Track code repos, datasets, papers, demos, and reports with color-coded type badges." },
+      { "icon": "🧩", "title": "AI Template Generation", "desc": "Download template, fill with any LLM in your browser, upload. No API keys ever needed." }
+    ],
+    "reporting": [
+      { "icon": "📅", "title": "Daily Reports", "desc": "Auto-generated from real data: step changes, log entries, artifact additions, literature imports." },
+      { "icon": "📈", "title": "Weekly Reports", "desc": "Portfolio dashboard with progress deltas, blocker counts, milestone status, and literature growth." },
+      { "icon": "🏠", "title": "Home Dashboard", "desc": "Latest report timestamps on the homepage. Priority sorting, RAG status, and filter controls." },
+      { "icon": "💾", "title": "Markdown Export", "desc": "All reports saved as Markdown files. Export, version-control, or share with collaborators." }
+    ]
+  },
+  "faq": [
+    { "q": "Do I need any API keys?", "a": "No. LabPilot is entirely API-key-free. You use browser-based AI tools (ChatGPT, Gemini, Claude) to fill templates externally, then upload the result. No provider configuration is needed." },
+    { "q": "Can I use only Zotero (no Undermind)?", "a": "Yes. Both Undermind and Zotero CSV imports are fully supported and independent. You can use one, both, or neither — manual paper entry is also available." },
+    { "q": "What is \"Vibe Coding\" vs \"Vibe Research\"?", "a": "They are two complementary disciplines. Vibe Coding focuses on implementation tasks (code, experiments, artifacts). Vibe Research focuses on literature, theory, and writing. Each has its own checklist, progress bar, and execution steps." },
+    { "q": "How do I keep projects consistent?", "a": "Use the template workflow: download the YAML template, fill all 12 sections with an LLM, upload the JSON. This generates a structured overview, execution steps, milestones, and kanban items — ensuring every project has the same rich structure." },
+    { "q": "How do I structure execution steps?", "a": "Steps are auto-generated from your template but fully editable. Each step has a title, description, status (todo/doing/done/blocked), and optional acceptance criteria. They sync to the progress bars on the dashboard." },
+    { "q": "Do I need a database?", "a": "No. All data is stored as flat files (YAML, JSON, Markdown, JSONL) in the project directory. Easy to backup, version-control, and inspect with standard tools." },
+    { "q": "Can I self-host it?", "a": "Yes — LabPilot is designed for self-hosting. Clone the repo, install Python and Node dependencies, and run the FastAPI server. Works on any Linux/macOS machine with Python 3.11+ and Node.js 20+." },
+    { "q": "What tech stack does it use?", "a": "FastAPI + Pydantic V2 backend, React 18 + TypeScript + Vite + TailwindCSS v4 frontend. Data stored as flat YAML/JSON/Markdown files — no database required." },
+    { "q": "How are reports generated?", "a": "Daily and weekly reports compile real project data: checklist deltas, punch-in logs, artifact additions, literature imports, and milestone changes into structured Markdown documents." },
+    { "q": "What is the structured overview?", "a": "A JSON document with 12 typed sections: definition, motivation, scope, key questions, concepts, pipeline, evaluation, deliverables, milestones, risks, literature entry points, and next actions. Each section renders as a rich card in the UI." }
+  ]
+}
