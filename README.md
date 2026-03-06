@@ -1,6 +1,6 @@
-# LitPulse — Vibe Coding & Research Monitor
+# VibeOps — Vibe Coding & Research Monitor
 
-Static landing page for the [vibeCR](https://github.com/Mr-Tieguigui/vibeCR) project.  
+Static landing page for the [vibeCR](https://github.com/vibeops/vibeops-zero) project.  
 Hosted on GitHub Pages. Zero build step, zero dependencies beyond Google Fonts.
 
 ## Structure
@@ -45,7 +45,7 @@ page_site/
 ## Editing
 
 ### Change the product name
-Search-replace `LitPulse` in `index.html`, `styles.css` comment header, `app.js` comment header, and this README.
+Search-replace `VibeOps` in `index.html`, `styles.css` comment header, `app.js` comment header, and this README.
 
 ### Add/remove demo projects
 Edit the `DEMO_DATA` array in `assets/app.js`. Each entry needs: `title`, `domain`, `summary`, `papers`, `steps`, `artifacts`, `updated`.
