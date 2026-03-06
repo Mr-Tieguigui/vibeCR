@@ -157,10 +157,12 @@
               </div>
               <div class="terminal-title">run.sh</div>
             </div>
-            <div class="terminal-body"><span class="comment"># Start backend + frontend</span><br><span
+            <div class="terminal-body"><span class="comment"># Dev mode (hot-reload)</span><br><span
                 class="prompt">$</span> uvicorn backend.app.main:app --port 8007<br><span class="prompt">$</span> npm
-              run dev --prefix frontend<br><span class="comment"># → http://localhost:5179</span></div>
-            <div class="terminal-footer">Server running</div>
+              run dev --prefix frontend<br><span class="comment"># → http://localhost:5179</span><br><br><span
+                class="comment"># Production build</span><br><span class="prompt">$</span> npm run build --prefix
+              frontend<br><span class="prompt">$</span> uvicorn backend.app.main:app --port 8007</div>
+            <div class="terminal-footer">Server running (dev:5179 + api:8007)</div>
           </div>
           <div class="terminal-card reveal reveal-delay-2">
             <div class="terminal-header">
@@ -171,11 +173,13 @@
               </div>
               <div class="terminal-title">workflow.sh</div>
             </div>
-            <div class="terminal-body"><span class="comment"># Daily workflow</span><br><span class="prompt">&gt;</span>
-              Upload filled project JSON<br><span class="prompt">&gt;</span> Import Undermind / Zotero CSV<br><span
-                class="prompt">&gt;</span> Cycle tasks, log updates<br><span class="prompt">&gt;</span> Export daily.md
-              report</div>
-            <div class="terminal-footer">Workflow initialized</div>
+            <div class="terminal-body"><span class="comment"># Full research pipeline</span><br><span
+                class="prompt">&gt;</span>
+              Export full CSV (Undermind / Zotero)<br><span class="prompt">&gt;</span> Survey Synthesis → Review
+              Doc<br><span class="prompt">&gt;</span> Innovation &amp; Method Design Prompt<br><span
+                class="prompt">&gt;</span> Generate DesignSpec JSON → Import<br><span class="prompt">&gt;</span> Track
+              VC/VR phases → Reports</div>
+            <div class="terminal-footer">Pipeline active</div>
           </div>
         </div>
       </div>
@@ -291,11 +295,12 @@
           </div>
         </div>
         <div class="lit-pipeline reveal reveal-delay-1">
-          <span class="lit-pipe-step">Export CSV</span><span class="lit-pipe-arrow">→</span>
-          <span class="lit-pipe-step">Import to LitPulse</span><span class="lit-pipe-arrow">→</span>
-          <span class="lit-pipe-step">Tag &amp; Annotate</span><span class="lit-pipe-arrow">→</span>
-          <span class="lit-pipe-step">Link to Projects</span><span class="lit-pipe-arrow">→</span>
-          <span class="lit-pipe-step">Weekly Reports</span>
+          <span class="lit-pipe-step">Export Full CSV</span><span class="lit-pipe-arrow">→</span>
+          <span class="lit-pipe-step">Survey Synthesis Prompt</span><span class="lit-pipe-arrow">→</span>
+          <span class="lit-pipe-step">Review Doc</span><span class="lit-pipe-arrow">→</span>
+          <span class="lit-pipe-step">Innovation &amp; Method Design</span><span class="lit-pipe-arrow">→</span>
+          <span class="lit-pipe-step">DesignSpec JSON</span><span class="lit-pipe-arrow">→</span>
+          <span class="lit-pipe-step">Import → Overview / VC / VR / Timeline</span>
         </div>
       </div>
     </section>
@@ -324,6 +329,9 @@
                   class="stack-link">Aider</a><span class="stack-desc">AI pair programming in terminal.</span></li>
               <li><a href="https://github.com/OpenDevin/OpenDevin" target="_blank" rel="noopener"
                   class="stack-link">OpenDevin</a><span class="stack-desc">Open-source AI software engineer.</span></li>
+              <li><a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener"
+                  class="stack-link">Claude Code</a><span class="stack-desc">Anthropic's agentic coding tool.</span>
+              </li>
             </ul>
           </div>
           <div class="stack-card reveal reveal-delay-1">
@@ -341,7 +349,12 @@
           </div>
           <div class="stack-card reveal" style="grid-column:1/-1;">
             <h3>Prompt Patterns</h3>
-            <div class="prompt-box">System: You are an expert engineer. I will provide a task.
+            <div class="prompt-box">Phase Grouping: Organize VC/VR steps into phases (Foundation → Core → Integration →
+              Polish).
+              Prompt Packs: Use short/expanded prompts per step via "Use Prompt" button.
+              Tools: Windsurf (Cascade), Cursor (Copilot++), Claude Code (terminal agent).
+
+              System: You are an expert engineer. I will provide a task.
               1. Outline the files to be modified.
               2. Provide a step-by-step implementation plan.
               3. Wait for my approval before writing code.
@@ -449,7 +462,9 @@
     <footer class="footer">
       <div class="container">
         <p><strong>LitPulse</strong> — Vibe Coding &amp; Research Monitor<br>
-          Licensed under CC BY-SA 4.0. No telemetry, no cloud DB.<br><br>
+          Licensed under CC BY-SA 4.0. No telemetry, no cloud DB.<br>
+          <span style="font-family:var(--font-mono);font-size:var(--text-12);color:var(--muted);">Last updated:
+            2025-03-05</span><br><br>
           <a href="https://github.com/Mr-Tieguigui/vibeCR" target="_blank" rel="noopener">GitHub</a> &middot;
           <a href="#top">Back to top</a>
         </p>
