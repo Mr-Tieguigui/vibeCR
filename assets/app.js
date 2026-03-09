@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   VibeOps — Landing Page Interactivity
+   VibeScholar — Landing Page Interactivity
    ═══════════════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
