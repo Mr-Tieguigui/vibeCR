@@ -1353,3 +1353,21 @@ h5 {
   box-shadow: 0 10px 24px rgba(255, 138, 0, 0.38);
   color: #111 !important;
 }
+
+#contact .contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+#contact .card img {
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  #contact .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
